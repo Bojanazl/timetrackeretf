@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29021.104
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerEtf", "src\TimeTrackerEtf\TimeTrackerEtf.csproj", "{53ABDF6B-4584-4322-A140-ED3B2B121B26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53ABDF6B-4584-4322-A140-ED3B2B121B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53ABDF6B-4584-4322-A140-ED3B2B121B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53ABDF6B-4584-4322-A140-ED3B2B121B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53ABDF6B-4584-4322-A140-ED3B2B121B26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3060A417-D933-4D9E-9C50-C118B5B49C6B}
+	EndGlobalSection
+EndGlobal
