@@ -38,14 +38,14 @@ namespace TimeTrackerEtf.Data.Migrations
                 name: "Projects",
                 columns: table => new
                 {
-                    id = table.Column<long>(nullable: false)
+                    Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: false),
                     ClientId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Projects", x => x.id);
+                    table.PrimaryKey("PK_Projects", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Projects_Clients_ClientId",
                         column: x => x.ClientId,
@@ -60,7 +60,7 @@ namespace TimeTrackerEtf.Data.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Projectid = table.Column<long>(nullable: false),
+                    ProjectId = table.Column<long>(nullable: false),
                     UserId = table.Column<long>(nullable: false),
                     EntryDate = table.Column<DateTime>(nullable: false),
                     Hours = table.Column<int>(nullable: false),
@@ -71,10 +71,10 @@ namespace TimeTrackerEtf.Data.Migrations
                 {
                     table.PrimaryKey("PK_TimeEntries", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TimeEntries_Projects_Projectid",
-                        column: x => x.Projectid,
+                        name: "FK_TimeEntries_Projects_ProjectId",
+                        column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_TimeEntries_Users_UserId",
@@ -90,9 +90,9 @@ namespace TimeTrackerEtf.Data.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TimeEntries_Projectid",
+                name: "IX_TimeEntries_ProjectId",
                 table: "TimeEntries",
-                column: "Projectid");
+                column: "ProjectId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TimeEntries_UserId",

@@ -5,7 +5,7 @@ namespace TimeTrackerEtf.Domain
     public class Project
     {
 
-        public long id { get; set; }
+        public long Id { get; set; }
 
         [Required] public string Name { get; set; }
 
