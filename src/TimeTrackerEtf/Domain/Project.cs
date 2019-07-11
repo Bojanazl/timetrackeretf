@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TimeTrackerEtf.Domain
 {
@@ -10,8 +7,8 @@ namespace TimeTrackerEtf.Domain
 
         public long id { get; set; }
 
-        public string Name { get; set; }
+        [Required] public string Name { get; set; }
 
-        public Client Client { get; set; }
+        [Required] public Client Client { get; set; }
     }
 }
