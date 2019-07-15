@@ -26,12 +26,14 @@ namespace TimeTrackerEtf
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TimeTrackerDbContext>(options => 
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))); //dodali
 
+            //services.AddJwtBearer
             services.AddControllers()
                 .AddFluentValidation(
                 options => options
@@ -56,6 +58,8 @@ namespace TimeTrackerEtf
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

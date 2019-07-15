@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -61,6 +62,7 @@ namespace TimeTrackerEtf.Controllers
             };
         }
 
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
@@ -101,6 +103,7 @@ namespace TimeTrackerEtf.Controllers
             return CreatedAtAction(nameof(GetById), "projects", new { id = project.Id }, resultModel);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public async Task<ActionResult<ProjectModel>> Update(long id, ProjectInputModel model)
         {
