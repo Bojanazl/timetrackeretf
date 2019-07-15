@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TimeTrackerEtf.Domain;
 
 namespace TimeTrackerEtf.Models
 {
@@ -16,5 +14,12 @@ namespace TimeTrackerEtf.Models
         public int Hours { get; set; }
 
         public string Description { get; set; }
+
+        public void MapTo(TimeEntry timeEntry)
+        {
+            timeEntry.EntryDate = EntryDate;
+            timeEntry.Hours = Hours;
+            timeEntry.Description = Description;
+        }
     }
 }
