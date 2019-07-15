@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace TimeTrackerEtf
 {
-    public class ErroHandlingMiddleware
+    public class ErrorHandlingMiddleware
     {
         private RequestDelegate _next;
-        private ILogger<ErroHandlingMiddleware> _logger;
-        public ErroHandlingMiddleware( RequestDelegate next, ILogger<ErroHandlingMiddleware> logger)
+        private ILogger<ErrorHandlingMiddleware> _logger;
+        public ErrorHandlingMiddleware( RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
         {
             _next = next;
             _logger = logger;

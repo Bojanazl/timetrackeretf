@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TimeTrackerEtf.Data;
+using TimeTrackerEtf.Extensions;
 using TimeTrackerEtf.Models.Validation;
 
 namespace TimeTrackerEtf
@@ -33,7 +34,8 @@ namespace TimeTrackerEtf
             services.AddDbContext<TimeTrackerDbContext>(options => 
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))); //dodali
 
-            //services.AddJwtBearer
+            services.AddJwtBearerAuthentication(Configuration);
+
             services.AddControllers()
                 .AddFluentValidation(
                 options => options
@@ -53,7 +55,7 @@ namespace TimeTrackerEtf
                 app.UseHsts();
             }
 
-            app.UseMiddleware<ErroHandlingMiddleware>(); //pipleline
+            app.UseMiddleware<ErrorHandlingMiddleware>(); //pipleline
 
             app.UseHttpsRedirection();
 

@@ -13,6 +13,7 @@ using TimeTrackerEtf.Models;
 namespace TimeTrackerEtf.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("/api/projects")]
     public class ProjectsController : Controller
     {
@@ -81,6 +82,7 @@ namespace TimeTrackerEtf.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<ActionResult<ProjectModel>> Create(ProjectInputModel model)
         {

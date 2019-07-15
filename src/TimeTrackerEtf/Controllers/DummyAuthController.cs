@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
+using TimeTracker;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace TimeTrackerEtf.Controllers
 {
@@ -14,12 +14,14 @@ namespace TimeTrackerEtf.Controllers
         }
 
         [Route("/get-token")]
-        public IActionResult GetToken(
+        public IActionResult GenerateToken(
             string name = "etf-workshp", bool admin = false)
         {
             var jwt = JwtTokenGenerator.Generate(
                 name, admin, _configuration["Tokens:Issuer"],
                 _configuration["Tokens: Key"]);
+
+            return Ok(jwt);
         }
     }
 
