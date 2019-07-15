@@ -51,7 +51,7 @@ namespace TimeTrackerEtf
                 app.UseHsts();
             }
 
-            app.UseMiddleware<ErroHandlingMiddleware>();
+            app.UseMiddleware<ErroHandlingMiddleware>(); //pipleline
 
             app.UseHttpsRedirection();
 
