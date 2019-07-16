@@ -15,7 +15,7 @@ namespace TimeTrackerEtf.Controllers
 
         [Route("/get-token")]
         public IActionResult GenerateToken(
-            string name = "etf-workshp", bool admin = false)
+            string name = "etf-workshop", bool admin = false)
         {
             var jwt = JwtTokenGenerator.Generate(
                 name, admin, _configuration["Tokens:Issuer"],
