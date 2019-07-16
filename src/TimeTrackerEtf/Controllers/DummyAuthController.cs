@@ -19,7 +19,7 @@ namespace TimeTrackerEtf.Controllers
         {
             var jwt = JwtTokenGenerator.Generate(
                 name, admin, _configuration["Tokens:Issuer"],
-                _configuration["Tokens: Key"]);
+                _configuration["Tokens:Key"]);
 
             return Ok(jwt);
         }
