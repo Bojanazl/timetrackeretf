@@ -6,6 +6,9 @@ using TimeTrackerEtf.Domain;
 
 namespace TimeTrackerEtf.Models
 {
+    /// <summary>
+    /// Re[resents one time tracker user.
+    /// </summary>
     public class UserModel
     {
 
@@ -13,9 +16,20 @@ namespace TimeTrackerEtf.Models
         {
         }
 
+        /// <summary>
+        /// Gts or sets user id/
+        /// </summary>
+
         public long Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets user name.
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets how much the user will be paid pet hour.
+        /// </summary>
 
         public decimal HourRate { get; set; }
 

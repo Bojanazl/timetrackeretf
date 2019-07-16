@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TimeTrackerEtf</name>
+    </assembly>
+    <members>
+        <member name="T:TimeTrackerEtf.Controllers.UsersController">
+            <summary>
+            Encapsulates functionality for adding, modeifying and deleting
+            users.
+            </summary>
+        </member>
+        <member name="M:TimeTrackerEtf.Controllers.UsersController.GetPage(System.Int32,System.Int32)">
+            <summary>
+            Gets a sngle page of users.
+            </summary>
+            <param name="page"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TimeTrackerEtf.Models.UserModel">
+            <summary>
+            Re[resents one time tracker user.
+            </summary>
+        </member>
+        <member name="P:TimeTrackerEtf.Models.UserModel.Id">
+            <summary>
+            Gts or sets user id/
+            </summary>
+        </member>
+        <member name="P:TimeTrackerEtf.Models.UserModel.Name">
+            <summary>
+            Gets or sets user name.
+            </summary>
+        </member>
+        <member name="P:TimeTrackerEtf.Models.UserModel.HourRate">
+            <summary>
+            Gets or sets how much the user will be paid pet hour.
+            </summary>
+        </member>
+    </members>
+</doc>

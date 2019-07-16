@@ -1,13 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using NSwag.Annotations;
 using TimeTracker;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace TimeTrackerEtf.Controllers
 {
+    [OpenApiIgnore]
     public class DummyAuthController : Controller
     {
+        
         private IConfiguration _configuration;
+
         public DummyAuthController(IConfiguration configuration)
         {
             _configuration = configuration;

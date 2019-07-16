@@ -12,6 +12,11 @@ using TimeTrackerEtf.Models;
 namespace TimeTrackerEtf.Controllers
 {
 
+    /// <summary>
+    /// Encapsulates functionality for adding, modeifying and deleting
+    /// users.
+    /// </summary>
+
     [ApiController]
     [Authorize]
     [Route("/api/users")]
@@ -25,6 +30,7 @@ namespace TimeTrackerEtf.Controllers
             _logger = logger;
         }
 
+        
         [HttpGet("{id}")]
         //[Route("{id}")]
         public async Task<ActionResult<UserModel>> GetById(long id) //asinhrono izvrsavanje. ulazna tacka
@@ -41,6 +47,12 @@ namespace TimeTrackerEtf.Controllers
             return UserModel.FromUser(user);
         }
 
+        /// <summary>
+        /// Gets a sngle page of users.
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<PageList<UserModel>>> GetPage(int page = 1, int size = 5)
         {
