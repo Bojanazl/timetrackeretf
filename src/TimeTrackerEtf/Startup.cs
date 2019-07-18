@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +40,8 @@ namespace TimeTrackerEtf
 
             services.AddOpenApi();
 
+            services AddCors();
+
             services.AddControllers()
                 .AddFluentValidation(
                 options => options
@@ -46,6 +50,8 @@ namespace TimeTrackerEtf
             services.AddHealthChecks();
 
             services.AddHealthChecks().AddSqlite(Configuration.GetConnectionString("DefaultConnection"));
+
+            services.AddHealthChecksUI();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,13 +79,27 @@ namespace TimeTrackerEtf
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //WARNING: This is just for demo purpose!
+            //You shoudl limit to a specific origin list
+            app.UseCors(
+                builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseOpenApi();
-            app.UseSwaggerUi3();
+            app.UseSwaggerUi3();     
+
+            app.UseHealthChecksUI();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
             });
         }
     }
