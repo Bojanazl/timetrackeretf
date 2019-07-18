@@ -42,6 +42,10 @@ namespace TimeTrackerEtf
                 .AddFluentValidation(
                 options => options
                .RegisterValidatorsFromAssemblyContaining<UserInputModelValidator>());
+
+            services.AddHealthChecks();
+
+            services.AddHealthChecks().AddSqlite(Configuration.GetConnectionString("DefaultConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +63,9 @@ namespace TimeTrackerEtf
 
             app.UseMiddleware<ErrorHandlingMiddleware>(); //pipleline
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseMiddleware<LimitingMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -72,6 +79,7 @@ namespace TimeTrackerEtf
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }

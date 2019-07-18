@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerEtf", "src\TimeT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerEtf.Tests", "src\TimeTrackerEtf.Tests\TimeTrackerEtf.Tests.csproj", "{891F0A68-CA82-4D41-A93D-CE1E7FC4381F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerEtf.Client", "TimeTrackerEtf.Client\TimeTrackerEtf.Client.csproj", "{DCA77844-41B9-414A-BFE1-152E83869E8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{891F0A68-CA82-4D41-A93D-CE1E7FC4381F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{891F0A68-CA82-4D41-A93D-CE1E7FC4381F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{891F0A68-CA82-4D41-A93D-CE1E7FC4381F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA77844-41B9-414A-BFE1-152E83869E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA77844-41B9-414A-BFE1-152E83869E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA77844-41B9-414A-BFE1-152E83869E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA77844-41B9-414A-BFE1-152E83869E8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
